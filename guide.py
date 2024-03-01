@@ -21,3 +21,24 @@ while True:
     except ValueError:
         print("Вы ввели неверное значение. Выберите пункт из меню")
         next
+        
+def show_all(my_dict):
+    print("Выводим на экран телефонный справочник")
+    print
+    for i in my_dict:
+        print(i)
+
+show_all(my_dict)
+
+def add_contact(my_dict):
+    name = input("Введите имя: \n")
+    phone = input("Введите телефон: \n")
+    comment = input("Введите комментарий: \n")
+    new_string = f'{name} {phone} {comment}'
+    my_dict.append({'Имя': name, 'Телефон': phone, 'Комментарий': comment})
+    with open('guide.txt', '+a') as file:
+        file.write(new_string)
+
+show_all(my_dict)
+add_contact(my_dict)
+show_all(my_dict)
