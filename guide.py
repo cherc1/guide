@@ -38,7 +38,22 @@ def add_contact(my_dict):
     my_dict.append({'Имя': name, 'Телефон': phone, 'Комментарий': comment})
     with open('guide.txt', '+a') as file:
         file.write(new_string)
+        
+def find_contact(my_dict):
+    search_word = input('Введите текст для поиска контакта:\n')
+    for item in my_dict:
+        for i in item.values():
+            if search_word in i:
+                print (item)
 
+def change_contact(my_dict, index):
+    fiends = list(my_dict[0].keys())
+    print(fiends)
+    to_change = int(input('В какое поле вносим изменения: 1. Имя, 2. Телефон, 3. Комментарий'))
+    new_value = input('Введите новое поле:')
+
+# show_all(my_dict)
+# add_contact(my_dict)
 show_all(my_dict)
-add_contact(my_dict)
-show_all(my_dict)
+find_contact(my_dict)
+change_contact(my_dict)
