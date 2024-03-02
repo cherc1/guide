@@ -49,11 +49,17 @@ def find_contact(my_dict):
 def change_contact(my_dict, index):
     fiends = list(my_dict[0].keys())
     print(fiends)
+    temp_dict = my_dict[index]
     to_change = int(input('В какое поле вносим изменения: 1. Имя, 2. Телефон, 3. Комментарий'))
     new_value = input('Введите новое поле:')
+    temp_dict[fiends[to_change - 1]] = new_value
+    my_dict[index] = temp_dict
+    with open('guide.txt', 'w') as file:
+        file.write(new_string)
 
 # show_all(my_dict)
 # add_contact(my_dict)
 show_all(my_dict)
 find_contact(my_dict)
-change_contact(my_dict)
+change_contact(my_dict, index: 0)
+show_all(my_dict)
